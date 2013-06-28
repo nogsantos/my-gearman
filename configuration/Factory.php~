@@ -1,0 +1,34 @@
+<?php
+
+/**
+ *
+ * Descrição:Factory
+ *
+ *
+ * @author Fabricio Nogueira
+ *
+ * @since 28-Jun-2013
+ *
+ * @version 1.0.0
+ *
+ */
+$config = new Zend_Config(
+    array(
+        'adapter' => 'oracle',
+        'params'  => array(
+            'dbname'     => '//200.137.221.79/ORCL2',
+            'password'   => 'simu123',
+            'username'   => 'SICAP_WEB',
+            'charset'    => 'AL32UTF8',
+            'persistent' => 'false',
+        )
+    )
+);
+$db = Zend_Db::factory($config);
+Zend_Db_Table::setDefaultAdapter($db);
+/*
+ * Zend debug
+ */
+//$profiler = new Zend_Db_Profiler_Firebug('All DB Queries');
+//$profiler->setEnabled(true);
+//$db->setProfiler($profiler);
